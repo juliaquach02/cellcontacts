@@ -1,0 +1,23 @@
+Package: cellcontacts
+Type: Package
+Title: Tools for cell track analysis, cell-cell contacts
+Version: 0.1.0
+Author: person("Quach", "Julia", email = juliaquach98@gmail.com")
+Maintainer: Quach Julia, <juliaquach98@gmail.com>
+Description: Tools to compute cell-cell distances, cell-cell contacts and characteristics of the cell-cell contacts. 
+License: What license is it under?
+Encoding: UTF-8
+LazyData: true
+Imports: 
+	celltrackR, 
+	dplyr, 
+	ggplot2, 
+	RImageJROI, 
+	spatstat, 
+	sp, 
+	sf,
+	r2r,
+	future, 
+	RColorBrewer, 
+	viridis
+RoxygenNote: 7.2.3
