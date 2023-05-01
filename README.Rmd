@@ -82,15 +82,15 @@ As the number of ROIs can be very large, we might need to split the zipped ROIs 
 
 We follow multiple steps to compute cell-cell distances and to filter for cell-cell contacts.
 
-### Matching track names to their frame number
+### 1. Matching track names to their frame number
 
-### Putting data into hash maps
+### 2. Putting data into hash maps
 
-### Computing cell-cell distances
+### 3. Computing cell-cell distances
 
-### Filtering for cell-cell contacts
+### 4. Filtering for cell-cell contacts
 
-### Export the results for visualization and validation
+### 5. Export the results for visualization and validation
 
 --------------------------------------------------------------------------------
 # __References__
