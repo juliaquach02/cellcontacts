@@ -1,8 +1,6 @@
 ---
 title: "[__cellcontacts__](https://github.com/juliaquach02/cellcontacts)"
-output:   
-  html_document:
-    css: style.css
+output: md_document
 author: "Julia Quach"
 date: "2023-04-29"
 bibliography: rmarkdown.bib
