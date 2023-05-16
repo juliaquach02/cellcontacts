@@ -246,7 +246,7 @@ Let $x \in \mathbb{R}$ be a distance threshold in \textmu m and $m \in \mathbb{N
 
 \section{Work flow}
 
-This section is a detailed guide through the image analysis work flow. An overview of the steps in the work flow is given in Figure \ref{Workflow_overview}. An exemplary R script and documentation of the R functions are provided on the \href{https://github.com/juliaquach02/cellcontacts}{GitHub page} of the R package.
+This section is a detailed guide through the image analysis work flow. An overview of the steps in the work flow is given in Figure \ref{Workflow_overview}. An exemplary R script are provided on the \href{https://github.com/juliaquach02/cellcontacts}{GitHub page} of the R package and a detailed tutorial of the workflow is provided in the supplement (\textcolor{blue}{[...]}).
 
 %\begin{figure}[h!]
 %\centering
@@ -264,7 +264,7 @@ This section is a detailed guide through the image analysis work flow. An overvi
 
 \begin{tikzpicture}[node distance = 1cm, auto]
     \node(Setup) [block]  { 
-    		\textbf{Requirements} \begin{itemize}
+    		\textbf{Setup} \begin{itemize}
     		\item Installation of ImageJ with StarDist and TrackMate plugin.
     		\item Installation of RStudio with \textit{cellcontacts} package and dependencies.
     	\end{itemize}
@@ -308,13 +308,13 @@ This section is a detailed guide through the image analysis work flow. An overvi
 \end{tikzpicture}
 \end{figure}
 
-
-
 \paragraph{Requirements}
-To use this work flow on a live-cell imaging film, the imaged cells need to be fluorescent to enable their correct segmentation. To ensure correct tracking of fast-moving T cells, the frame rate needs to be at around 90\,s/frame.
+To use this work flow on a live-cell imaging film, the imaged cells need to be fluorescent to enable their correct segmentation. To ensure correct tracking of fast-moving T cells, the frame rate needs to be set to 90\,s/frame or faster.
 
 For the image processing, installation of the open source package \href{https://imagej.net/software/fiji/}{Fiji}, also known as ImageJ, with the plugins \href{https://imagej.net/plugins/stardist}{StarDist} for cell segmentation and \href{https://imagej.net/plugins/trackmate/}{TrackMate} for cell tracking is required.
 To use the \textit{cellcontacts} package, the programming language \href{https://cran.r-project.org/bin/windows/base/}{R} is needed, preferably in the \href{https://posit.co/download/rstudio-desktop/}{RStudio environment}.
+
+\paragraph{Installation}
 The latest development version of \textit{cellcontacts} can be installed in the R environment after getting access to the \textit{cellcontacts} project on GitHub:
 \begin{lstlisting}[language=R]
 	devtools::install_github( "juliaquach02/cellcontacts" ) 
@@ -325,9 +325,11 @@ The package can be loaded via:
 \end{lstlisting}
 
 \paragraph{Preprocessing in ImageJ} 
-To extract the image features, we load the live-cell imaging film as .tif-file in Fiji to use the TrackMate plugin for segmentation and tracking. Two separate TrackMate session are needed to analyse T cells und tumour cells. During segmentation and tracking, the plugin offers the possibility to adjust parameters and to manually correct segmented cells or cell tracks if necessary. After segmentation and tracking, the cell areas of both data sets are renamed in the TrackMate GUI by their assigned track name and an unique index for the respective track. We export cell tracks as .csv file. By default, the first three lines of the .csv file contain the header of its columns in three different text styles (capital letters, full name and abbreviated). To enable correct loading of the .csv files with R, two of the first three lines are deleted, e.g. via a text editor. 
+To extract the image features, we load the live-cell imaging film as .tif-file in Fiji to use the TrackMate plugin for segmentation and tracking. Two separate TrackMate session are needed to analyse T cells and tumour cells. During segmentation and tracking, the plugin offers the possibility to adjust parameters and to manually correct segmented cells or cell tracks if necessary. After segmentation and tracking, the cell areas of both data sets are renamed in the TrackMate GUI by their assigned track name and an unique index for the respective track. 
 
-Furthermore, the renamed cells region of interests (ROIs) are exported from TrackMate and saved into several zipped folders with around thousand .roi-files per folder. Saving the ROIs into several zipped folders will enable parallel, hence faster, import to R. For the saving process, we provide an \href{https://github.com/juliaquach02/cellcontacts/blob/main/ImageJ_Macros/Macro_Rename_and_Save_ROIs_in_Subfolders.ijm}{ImageJ macro} on the package's GitHub page.
+We export cell tracks as .csv file. By default, the first three lines of the .csv file contain the header of its columns in three different text styles (capital letters, full name and abbreviated). To enable correct loading of the .csv files with R, two of the first three lines are deleted, e.g. via a text editor. 
+
+The renamed cells region of interests (ROIs) are exported from TrackMate and saved into several zipped folders with around thousand .roi-files per folder. Saving the ROIs into several zipped folders will enable parallel, hence faster, import to R. For the saving process, we provide an \href{https://github.com/juliaquach02/cellcontacts/blob/main/ImageJ_Macros/Macro_Rename_and_Save_ROIs_in_Subfolders.ijm}{ImageJ macro} on the package's GitHub page.
  
 Apart from exporting cell tracks and cell ROIs, the TrackMate sessions can be saved as .xml file. This allows reloading the session with its segmentation and tracking parameters. 
 At the end of the preprocessing, there are two .xml files, one for the tumour cell and one for the T cell analysis session. In addition, there are two .csv files with the track information and at least two zipped folders with .roi files representing the segmented tumour cell and T cell ROIs. 
@@ -478,26 +480,22 @@ To check of the computed cell-cell contacts, we export the track information of 
 \caption[TrackMate_CSV_Importer]{Via the TrackMate CSV Importer GUI, we can load our results back into a TrackMate session. \label{TrackMate_CSV_Importer}}
 \end{figure}
 
-\paragraph{Computing characteristics of cell tracks}
-
 \paragraph{Correlating results to immunological staining results}
+We often want to connect the dynamic information of the cell tracks to the static information of the same cells from immunological staining. For this, we provide the function \codeword{match_to_endpoint_ROIs()} to match the cell tracks to the corresponding cell ROIs at the end point. The function \codeword{add_meas_to_matches()} can add the measurements of the signal intensity to the mapping of cell tracks to endpoint ROIs.
 
 \paragraph{Identifying dying tumour cells}
+\textcolor{blue}{[...]}
 
+\paragraph{Computing characteristics of cell tracks}
+\textcolor{blue}{[...]}
 
 %===================================================
-\section{Tools for quality control}
+\section{Quality control}
 
-\paragraph{Evaluation Metric}
+\paragraph{Evaluation metric}
+Our efforts to assess the reliability of our work flow were two-fold. On the one hand, we imported the computed results back into TrackMate such that T cells are labelled during a cell-cell contact for a visual validation. On the other hand, we manually counted cell-cell contacts in live cell imaging methods and evaluated the accordance of the computed cell-cell contacts to the manually obtained results.\\
 
-To assess the reliability of our work flow, we used two metrics for evaluation:
-
-\begin{itemize}
-	\item Visually via TrackMate .csv importer
-	\item Comparison to manually obtained results
-\end{itemize}
-
-\paragraph{ Examining track quality}
+To-do: Paragraph \textit{Examining track quality}
 
 
 %===================================================
