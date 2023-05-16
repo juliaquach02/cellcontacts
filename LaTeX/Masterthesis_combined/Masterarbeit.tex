@@ -1,0 +1,301 @@
+\documentclass{report}
+\pagestyle{plain}
+\pagenumbering{arabic}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amscd,amsmath,amssymb,amstext,amsthm}
+\usepackage{braket}
+\usepackage{mathpartir}
+\usepackage{tikz}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{enumitem}
+\usepackage{ulem}
+\usepackage{booktabs}
+\usepackage{setspace}
+\usepackage{longtable}
+\usepackage{sectsty}
+\usepackage{titlesec}
+\usepackage{titling}
+\usepackage[numbers]{natbib}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage{placeins}
+\usepackage{subcaption}
+\usepackage{textgreek}
+\usepackage[version=3]{mhchem}
+\usepackage[nottoc]{tocbibind}
+
+\DeclareUnicodeCharacter{2009}{ }
+
+\definecolor{darkblue}{rgb}{0,0,0.7}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{breakurl}
+\def\UrlBreaks{\do\/\do-}
+
+
+\usepackage
+[
+        a4paper,
+        left=30mm,
+        right=25mm,
+        top=25mm,
+        bottom=25mm,    
+]
+{geometry}
+
+\makeatletter
+    \renewcommand{\@makechapterhead}[1]{%
+    \vspace*{50 pt}%
+    {\setlength{\parindent}{0pt} \raggedright \normalfont
+    \bfseries\Huge\sffamily
+    \ifnum \value{secnumdepth}>1 
+        \if@mainmatter\thechapter.\ \fi%
+    \fi
+    #1\par\nobreak\vspace{40 pt}}}
+    \makeatother
+
+\newcommand{\subtitle}[1]{%
+  \posttitle{%
+    \par\end{center}
+    \begin{center}\large#1\end{center}
+    \vskip4em}%
+}	
+
+\newcommand*\PrintSkips[1]{%
+  \typeout{In #1:}%
+  \typeout{\@spaces above: \the\abovecaptionskip}%
+  \typeout{\@spaces below: \the\belowcaptionskip}%
+}
+
+\newcommand{\tu}{\textmu}
+    
+\begin{document}
+\allsectionsfont{\sffamily}
+\onehalfspacing
+
+
+\title{\sffamily Developing the R package \textit{cellcontacts} for the high-throughput analysis of cell-cell interaction between T cells and tumour cells \vskip4em}
+\subtitle{\sffamily
+ \large \textbf{Masterarbeit\\ and der Medizinischen Fakultät \\der Eberhard Karls Universität Tübingen}}
+\author{\large \sffamily vorgelegt von \vspace{2ex}\\ \sffamily \textbf{Quach, Julia}}
+\date{\large \sffamily\textbf{Tübingen, DATUM}}
+\maketitle
+
+%\chapter*{Statement}
+%
+%I hereby declare:
+%\begin{itemize}
+%\item that this thesis is my own work and that I have not made use of any other sources or aids than those referenced.
+%\item that all statements appropriated from other works in letter or in substance have been referenced as such. 
+%\item that the thesis submitted has not been the subject of any other examination in essential parts or in full
+%\item that the thesis submitted has not been published in essential parts or in full.
+%\end{itemize}
+%
+%
+%\noindent I affirm that I have written the dissertation myself and have not used any sources and
+%aids other than those indicated.
+%The references are presented accorded to standard rules for publication and
+%standard citation guidelines.\\\\
+%
+%
+%\noindent Tübingen, Date, Signature
+
+
+\tableofcontents
+%===================================================
+
+\setlength\parindent{0pt}
+
+\chapter{Summary}
+
+It is widely known that cancer is still one of the leading causes of death in Western society [citation]. Its high mortality is predominantly caused by tumor resistance agains available therapies [citation]. To combat this resistance, new therapies have been developed from which the most recent and promising therapeutic approach are immunotherapies which have shown great success in the past [citation]. Immunotherapies make use of engineered or innate immune cells, especially T cells, to eliminate malignant tumor cells. Still, many cancer types remain resistant. To overcome this, there follows a high need to understand the crucial factors behind therapy resistance and efficient T cell killing. \\
+
+To elucidate the mechanisms of efficient T cell killing, [Introduction on OVA tumor models, live cell imaging, staining, fix-while-filming ]\\
+
+To achieve meaningful results, large data sets and their statistical analysis are pivotal. To enable a large-scale analysis of tumor and T cell interaction, this thesis aims at developing an R package to automatically evaluate cell dynamics in live cell imaging movies. This would enable a quantitative analysis of cell-cell contacts on big sample sets. Besides, the R packages proposes to correlate dynamical cell data to immunological staining results. To put it in a nutshell, this thesis' goal is to heighten the explanatory power of available live cell imaging and immunological staining techniques by enabling large-scale analyses and correlation of dynamical to immunological staining methods.\\
+
+To achieve an efficient analysis of live cell imaging data, [... More details on the R package and workflow]. \\
+
+We show that [...]
+
+%%===================================================
+\chapter{Introduction}
+\begin{itemize}
+	\item Why T cells are crucial for tumour elimination
+	\item Crucial factors for T cell killing and the relevance of cell dynamics
+	\item Tools to investigate cell dynamics
+	\item Software to analyze cell tracks
+\end{itemize}
+
+\section{T cells are crucial for tumour elimination}
+
+\begin{itemize}
+	\item Hallmarks of Cancer
+	\item Escaping immune system
+	\item T cell killing
+	\item Tumor cell elimination by the body always by T cells (I think)
+\end{itemize}
+
+\section{CAR T cells as arising tumour therapy}
+
+\begin{itemize}
+	\item Introduction to CAR T cells
+	\item Potential of CAR T cells and shortcomings so far
+	\item Approaches to improve CAR T cells (genetic, antigen receptor)
+	\item Tools to evaluate CAR T cell efficiency (and why dynamic information is important)
+\end{itemize}
+
+\section{The relevance of cell dynamics}
+
+\begin{itemize}
+	\item Advantages of static methods (FACS, sequencing, immuno-stainings)
+	\item Shortcomings of static methods
+	\item Benefit of cell dynamics
+	\item Results so far about cell dynamics
+	\item Aim of this thesis
+\end{itemize}
+
+\paragraph{Cell-cell interaction is essential for tumour killing}
+
+\begin{itemize}
+	\item What is known about cell-cell interaction
+	\item Why it is important to investigate cell-cell interaction
+	\item What we would like to know about cell-cell interaction
+\end{itemize}
+
+This is the question central to this thesis. How do the dynamics of T cell behaviour correlate to tumour killing efficiency?
+More specifically, this thesis builds a tool for a large-scale analysis of cell-cell interaction between T cells and tumour cells. Furthermore, we combine our results on dynamical data to findings on tumour killing efficiency from immunological methods.
+
+\section{Tools to investigate cell dynamics}
+
+Requires recognizing the cell and then characterizing its movement.
+Live Cell Imaging
+
+\subsection{Cell segmentation}
+
+\begin{itemize}
+	\item Stardist
+	\item CellPose
+\end{itemize}
+
+\subsection{Cell tracking}
+
+\begin{itemize}
+	\item LAP tracker
+	\item Kalman tracker
+\end{itemize}
+
+\subsection{Cell-cell contacts}
+
+\begin{itemize}
+	\item Available tools
+	\item Our needs
+\end{itemize}
+
+%%===================================================
+\chapter{Methods}
+
+\begin{itemize}
+	\item Overview
+	\item Imaging details
+	\item Segmentation
+	\item Tracking
+	\item Export to RStudio
+	\item Cell-cell contact computation
+	\item Extracting more features
+	\item Quality control (CelltrackR)
+	\item Data analysis
+\end{itemize}
+
+\section{Work flow}
+
+\section{Extracting features}
+
+For a given set of cell tracks, we would like to observe meaningful features of the cell movement and activity. To acquire the cell motility data, tumour cells (B16F10-H2BmCherry-OVA) and T cells (OT1 GFP) were seeded into a 3D collagen gel and imaged over time for several hours at a rate of 90 seconds per image. Afterwards, the images were segmented and cell tracks were obtained using an image analysis tool, e.g., the TrackMate Plugin for ImageJ or Imaris 3D.\\
+
+The cell tracks have the following structure: Each .csv-file is a table with the columns "ID", "time point", "x-" , "y-" and "z"-coordinate. We have separate .csv-files for the tracks from tumour cells and the tracks from T cells.
+
+\section{Developing the R package \textit{cellcontacts}}
+
+\subsection{ Computing cell-cell contacts }
+
+\subsection{ Identifying dying tumour cells}
+
+\section{Tools for quality control}
+
+%%===================================================
+\chapter{Results}
+
+\section{Segmentation and tracking of cells}
+
+\section{Computing cell-cell contacts}
+
+\section{Benchmarking computation time}
+
+\section{Investigation of killing efficiency}
+
+\begin{itemize}
+	\item Identifying dead cells
+\end{itemize}
+
+\section{Investigating the induction of cell senescence}
+
+\begin{itemize}
+	\item Visualizing cell size with regard to cell-cell contacts
+\end{itemize}
+
+
+%%===================================================
+\chapter{Discussion}
+
+\section{Biological interpretation}
+
+\section{Working title: Comparison to available tools}
+
+%%===================================================
+%\chapter{Conclusion}
+%
+%
+%%===================================================
+%\chapter*{Acknowledgment}
+%\addcontentsline{toc}{chapter}{Acknowledgment}
+
+
+
+%===================================================
+%
+%\listoffigures
+%\listoftables
+%%===================================================
+%\bibliographystyle{unsrtnat}
+%\renewcommand{\bibname}{References}
+%\bibliography{literatur}
+%
+%
+%
+%%===================================================
+%\chapter*{Supplement}
+%\addcontentsline{toc}{chapter}{Supplementary}
+%
+%\newcommand{\beginsupplement}{
+%        \setcounter{table}{0}
+%        \renewcommand{\thetable}{S\arabic{table}}%
+%        \setcounter{figure}{0}
+%        \renewcommand{\thefigure}{S\arabic{figure}}%
+%     }
+% 
+%\beginsupplement
+
+
+\end{document}

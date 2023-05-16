@@ -1,0 +1,27 @@
+\contentsline {chapter}{\numberline {1}Summary}{2}{chapter.1}
+\contentsline {chapter}{\numberline {2}Scope}{3}{chapter.2}
+\contentsline {chapter}{\numberline {3}Introduction}{4}{chapter.3}
+\contentsline {section}{\numberline {3.1}T cells are crucial for tumour elimination}{4}{section.3.1}
+\contentsline {section}{\numberline {3.2}CAR T cells as arising tumour therapy}{4}{section.3.2}
+\contentsline {section}{\numberline {3.3}The relevance of cell dynamics}{4}{section.3.3}
+\contentsline {paragraph}{Cell-cell interaction is essential for tumour killing}{5}{paragraph*.2}
+\contentsline {section}{\numberline {3.4}Tools to investigate cell dynamics}{5}{section.3.4}
+\contentsline {subsection}{\numberline {3.4.1}Cell segmentation}{5}{subsection.3.4.1}
+\contentsline {subsection}{\numberline {3.4.2}Cell tracking}{5}{subsection.3.4.2}
+\contentsline {subsection}{\numberline {3.4.3}Cell-cell contacts}{5}{subsection.3.4.3}
+\contentsline {chapter}{\numberline {4}Methods}{6}{chapter.4}
+\contentsline {section}{\numberline {4.1}Work flow}{6}{section.4.1}
+\contentsline {section}{\numberline {4.2}Extracting features}{6}{section.4.2}
+\contentsline {section}{\numberline {4.3}Developing the R package \textit {cellcontacts}}{6}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1} Computing cell-cell contacts }{6}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2} Identifying dying tumour cells}{6}{subsection.4.3.2}
+\contentsline {section}{\numberline {4.4}Tools for quality control}{6}{section.4.4}
+\contentsline {chapter}{\numberline {5}Results}{7}{chapter.5}
+\contentsline {section}{\numberline {5.1}Segmentation and tracking of cells}{7}{section.5.1}
+\contentsline {section}{\numberline {5.2}Computing cell-cell contacts}{7}{section.5.2}
+\contentsline {section}{\numberline {5.3}Benchmarking computation time}{7}{section.5.3}
+\contentsline {section}{\numberline {5.4}Investigation of killing efficiency}{7}{section.5.4}
+\contentsline {section}{\numberline {5.5}Investigating the induction of cell senescence}{7}{section.5.5}
+\contentsline {chapter}{\numberline {6}Discussion}{8}{chapter.6}
+\contentsline {section}{\numberline {6.1}Biological interpretation}{8}{section.6.1}
+\contentsline {section}{\numberline {6.2}Working title: Comparison to available tools}{8}{section.6.2}
