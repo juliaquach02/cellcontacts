@@ -70,15 +70,19 @@ The cellcontacts package processes
 For the segmentation and tracking of the cells in the live-cell imaging film, TrackMate proves to be a useful tool. It is a modular tool that enables the segmentation and tracking of cells via common segmentation tools, e.g. [StarDist](https://imagej.net/plugins/stardist), 
 and tracking tools, e.g. the [LAP tracker](https://www.nature.com/articles/nmeth.1237). 
 
-The cellcontacts package requires the segmentation and tracking of tumor and T cells as two separate cell populations. Cell areas, called cell ROIs (region of interest), should be named by their track name with incremented index in the format *Track_[id]_[index]* and saved as .roi-files in a zipped folder. Please be aware that RStudio cannot load files with a "\." in their file name. Furthermore, cell tracks should be saved from the TrackMate GUI as .csv file and only the first line of the .csv file should contain the column headers.
+The cellcontacts package requires the segmentation and tracking of tumor and T cells as two separate cell populations. Cell areas, called cell ROIs (region of interest), should be named by their track name with index in the format *Track_[id]_[index]* and saved as .roi-files in a zipped folder. In addition, cell tracks should be saved as .csv file.
+
+To ensure correct import of the data in RStudio, please make sure that file names do not contain a "\." and that only the first line of the .csv file contain column headers.
 
 ### __Setting directories and loading the data__
 
-Firstly, source and destination directories need to be set. To import the cell tracks, we simply use the `read.table()` function. To import the cell ROIs, we use the `read.ijzip()` function from the [RImageJROI](https://cran.r-project.org/web/packages/RImageJROI/index.html) package. 
-As the number of ROIs can be very large, we might need to split the zipped ROIs into multiple zipped subfolders and load the folders in parallel using the [future](https://cran.r-project.org/web/packages/future/index.html) package. To save the ROIs into separate subfolders, an ImageJ macro is provided [here](ImageJ_Macros/Macro_Rename_and_Save_ROIs_in_Subfolders.ijm).
+After setting source and destination directories, we can load the data into RStudio. To import the cell tracks, we simply use the `read.table()` function. To import the cell ROIs, we use the `read.ijzip()` function from the [RImageJROI](https://cran.r-project.org/web/packages/RImageJROI/index.html) package. 
 
-```{r directories and import, include=FALSE}
+As the number of ROIs might be very large, it might be necessary to split the zipped ROIs into multiple zipped subfolders and load the folders in parallel using the [future](https://cran.r-project.org/web/packages/future/index.html) package. To save the ROIs into separate subfolders, an ImageJ macro is provided [here](ImageJ_Macros/Macro_Rename_and_Save_ROIs_in_Subfolders.ijm).
 
+Below, the code to load the tumour cell tracks and tumour cell ROIs is displayed. Analogously, we can load the T cell tracks and T cell ROIs.
+
+```{r directories, include=FALSE}
 # Setting directories ----------------------------------------------------------
 
 # Source directory to ROIs 
@@ -95,23 +99,15 @@ endPointMeasPath <- paste0(getwd(), "/Example/Endpoint_Measurement/Results_Endpo
 
 # Destination directory for plots and exported data frames
 resultsPath <- paste0(getwd(), "/Example/Results/")
+```
 
-# Importing tracks ----------------------------------------------------
-
-# Load track information as txt
-
+```{r import tumour cells}
+# Importing tracks
 tumorTracksTxt <- read.table( tumorTracksPath, header = TRUE, sep = ",", )
-tcellTracksTxt <- read.table( tcellTracksPath, header = TRUE, sep = ",",)
 
-# Load endpoint data ----------------------------------------------------
-
-endPointROIs <- read.ijzip( endPointROIPath )
-endPointMeasTxt <- read.table( endPointMeasPath, header = TRUE, sep = ",", )
-
-# Load tumour ROIs of movie -----------------------------------------------------------
-
-# Create list of zipped ROI folders
-numSubfolders <- 14 # Adjust numSubfolders for each data set
+# Load tumour ROIs of movie
+# Create list of zipped ROI folders (Adjust numSubfolders for each data set)
+numSubfolders <- 14 
 pathROIs <- list()
 
 for( i in 1:numSubfolders){
@@ -125,19 +121,27 @@ pathROIsPt2 <- pathROIs[ (floor(numSubfolders/2) + 1):numSubfolders ]
 # Load ROIs in parallel
 plan(multisession)
 
-# job 1
-ROIsPt1 %<-% {
+ROIsPt1 %<-% {  # job 1
   ROIsPt1 <- lapply( pathROIsPt1, read.ijzip)
 }
-
-# job 2
-ROIsPt2 %<-%{
-  ROIsPt2 <- lapply( pathROIsPt2, read.ijzip)
+ROIsPt2 %<-%{ # job 2
+  ROIsPt2 <- lapply( pathROIsPt2, read.ijzip) 
 }
 
 tumorROIs <- append( ROIsPt1, ROIsPt2)
 
-rm(ROIsPt1, ROIsPt2) # Clear memory
+```
+
+
+```{r import T cells, include = FALSE}
+# Importing tracks ----------------------------------------------------
+# Load track information as txt
+tcellTracksTxt <- read.table( tcellTracksPath, header = TRUE, sep = ",",)
+
+# Load endpoint data ----------------------------------------------------
+
+endPointROIs <- read.ijzip( endPointROIPath )
+endPointMeasTxt <- read.table( endPointMeasPath, header = TRUE, sep = ",", )
 
 # Load T cell ROIs of movie -----------------------------------------------------------
 
@@ -174,11 +178,9 @@ tcellROIs <- append(ROIsPt1, ROIsPt2)
 rm(ROIsPt1, ROIsPt2) # Clear memory
 
 ```
-
 ### __Analysis__
 
-To compute cell-cell contacts for a large set of segmented cells, we need to put the data into a suitable data structure to allow easy and efficient computation and access.
-
+To process a large set of segmented cells, we need to put the data into a suitable data structure to allow easy and efficient computation and access.
 
 ### 1. Matching track names to their frame number
 
@@ -194,36 +196,38 @@ print( head( tcell_trackName_frameNum ))
 
 ```
 
-
 ### 2. Putting data into hash maps
 
-For an efficient retrieval of our data during computation, we put our data set into hash maps. We sort the cell ROIs into a 2D grid with a column and row width of 100 &micro;m to get rough estimates of their position. With those hash maps, we can access:
+To efficiently access our data during computation, we arrange our data set into hash maps. Furthermore, we sort the cell ROIs into a 2D grid with a column and row width of 100 &micro;m to get rough estimates of their position. 
 
-* For a specific frame number, the track names of all cells in that time point.
-* The a specific cell ROI name, the center point of that cell at that time point.
-* For a specific cell ROI name, the rough position in the frame if we put a 2D grid over that frame.
+To create a 2D grid, we provide the function `create_grid()`. To put the data into hash maps, we provide the functions
+
+* `insert_Hashmap_FrameNumToNames()` to retrieve track names of all cells for a specific time point.
+* `insert_Hashmap_NamesToCenter()` to retrieve the center point for a specific ROI name.
+* `insert_Hashmap_NamesToGrid()` to retrieve a rough position in the frame for a specific ROI name.
+* `insert_Hashmap_NamesToCoords()` to retrieve the ROI coordinates for a specific ROI name
 
 ```{r hash maps}
 
-# Hash map names to coordinates
+# Hash map from names to coordinates
 tumorROImap <- hashmap( default = "No value for this key")
 invisible( lapply( tumorROIs, insert_Hashmap_NamesToCoords, ROImap = tumorROImap) )
 
 tcellROImap <- hashmap( default = "No value for this key")
 invisible(  lapply( tcellROIs, insert_Hashmap_NamesToCoords, ROImap = tcellROImap)  )
 
-# Hash map time points to names
+# Hash map from time points to names
 insert_Hashmap_FrameNumToNames( tumor_trackName_frameNum, ROImap = tumorROImap )
 insert_Hashmap_FrameNumToNames( tcell_trackName_frameNum, ROImap = tcellROImap )
 
-# Hash map names to center points
+# Hash map from names to center points
 tumorROImap_center <- hashmap( default = "No value for this key")
 tcellROImap_center <- hashmap( default = "No value for this key")
 
 invisible( lapply( tumorROIs, insert_Hashmap_NamesToCenter, ROImap = tumorROImap_center ) )
 invisible( lapply( tcellROIs, insert_Hashmap_NamesToCenter, ROImap = tcellROImap_center ) )
 
-# Hash map names to field in grid of respective ROI center point
+# Hash map from names to position in grid
 grid <- create_grid( c(0,600), c(0,600), dim = 6) ### Frame dimensions should be checked for each data set
 
 tumorROImap_NamesToGrid <- hashmap( default = "No value for this key")
@@ -232,7 +236,7 @@ tcellROImap_NamesToGrid <- hashmap( default = "No value for this key")
 invisible( lapply( tumorROIs, insert_Hashmap_NamesToGrid, ROImap = tumorROImap_NamesToGrid, grid = grid ) )
 invisible( lapply( tcellROIs, insert_Hashmap_NamesToGrid, ROImap = tcellROImap_NamesToGrid, grid = grid ) )
 
-# Put endPointROIs into field and hashmap
+# Add endPointROIs into field and hash map
 endpointROImap <- hashmap( default = "No value for this key")
 insert_Hashmap_NamesToCoords( endPointROIs, endpointROImap)
 insert_Hashmap_NamesToGrid( endPointROIs, ROImap = tumorROImap_NamesToGrid, grid = grid  )
@@ -246,7 +250,7 @@ lastTimepoint <- max( as.integer( tumor_trackName_frameNum$Frame ), as.integer( 
 tumorROImap[["lastTimepoint"]] <- lastTimepoint
 tcellROImap[["lastTimepoint"]] <- lastTimepoint
 
-# Delete loaded zip folders to clear memory -------------------------------
+# Delete loaded zip folders to clear memory 
 rm( tumorROIs )
 rm( tcellROIs )
 gc()
@@ -261,7 +265,7 @@ For this, we provide the function `match_to_endpoint_ROIs()` to match the cell t
 
 ```{r mapping to endpoint}
 
-# Map tumor tracks from movie to endpoint staining ----------------------------
+# Map tumor tracks from movie to endpoint staining
 matches <- match_to_endpoint_ROIs(  endPointROIs, endpointROImap, tumorROImap, tumorROImap_center, tumorROImap_NamesToGrid )
 
 # Add measurement results to matches
@@ -273,8 +277,7 @@ print( head( result ) )
 To check the mapping, we can plot the matched endpoint ROIs and cell tracks by their color in one plot:
 
 <center>
-![Matched_ROIs](Plot_Matched_ROIs.jpg){#id .class width=56% height=51.2%}     
-*Cell areas at least time point are mapped to the cell areas from the immunological staining at the endpoint. Matched cells are plotted in the same colour.*
+![Matched_ROIs](Plot_Matched_ROIs.jpg){#id .class width=56% height=51.2%}*Cell areas at last time point are mapped to the cell areas from the immunological staining at the endpoint. Matched cells are plotted in the same color.*
 </center>
 
 
@@ -282,7 +285,7 @@ To check the mapping, we can plot the matched endpoint ROIs and cell tracks by t
 
 Cell-cell distances need to be computed to filter for cell-cell contacts. For this, we provide the function `compute_distTimepoint_wGrid()`. 
 
-This function computes for a given time point all possible tumour cell/T cell pairs. For each pair, the function firstly checks the rough position of both cells using their position in the 2D grid. If the distance of the pair is below 200 &micro;m, the euclidean distance between the cell ROI is computed. 
+This function computes for a given time point all possible tumour cell/T cell pairs. For each pair, the function checks the rough position of both cells using their position in the 2D grid. If the cells are at least in neighboring columns and rows of the grid, the euclidean distance between the cell ROI is computed. 
 
 The output of the function is a data frame which lists all possible cell pairs and either the distance of the pair or a remark that the distance is substantially larger than the distance threshold for a cell-cell contact.
 
@@ -301,9 +304,9 @@ print( head(cellDist[[1]]) )
 
 ### 5. Filtering for cell-cell contacts
 
-To filter the cell pairs for cell-cell contacts, we only keep cell pairs that maintain a distance below a distance threshold for a minimum duration of frames. The distance and duration thresholds can be set manually. 
+To filter the cell pairs for cell-cell contacts, we only keep cell pairs that maintain a distance below a distance threshold for a minimum duration of frames. The distance and duration threshold can be set manually. 
 
-As result, we obtain a list of tumour cell/T cell pairs and each list entry represents one pair and contains the columns "time point" and "distances".
+As result, we obtain a list of tumor cell/T cell pairs and each list entry represents one pair and contains the columns "time point" and "distances".
 
 ```{r cell-cell contacts}
 
@@ -312,38 +315,39 @@ minDuration <- 4
 
 # To filter for cell-cell contacts, we use pipes from the tidyverse package.
 pairs <- cellDist %>% 
-    add_columnPair() %>% # Add column pair
-    lapply( add_columnTimepoint, tumor_trackName_frameNum = tumor_trackName_frameNum) %>% # Add column time point
-    lapply( check_contacts, distThresh = 7) %>% # Evaluate whether the distance is below threshold
-    lapply( keep_contactTrue)  %>% # Keep only pairs with distance below threshold
-    Filter(Negate(is.null), .) %>% # Discard empty list entries
-    .[lapply( ., nrow) > 0]  %>% 
+    add_columnPair() %>% 
+    lapply( add_columnTimepoint, tumor_trackName_frameNum = tumor_trackName_frameNum) %>% #
+    lapply( check_contacts, distThresh = 7) %>% #
+    lapply( keep_contactTrue)  %>% 
+    Filter( Negate(is.null), .) %>% 
+    .[ lapply( ., nrow) > 0 ]  %>% 
     lapply( as.data.frame ) %>%  
     bind_rows() %>%  
-    split( ., .$pair) %>%  # Split by pair
-    .[ lapply( ., nrow) > minDuration] # Get all pairs above minimum duration
+    split( ., .$pair ) %>%  
+    .[ lapply( ., nrow) > minDuration ] 
 
-print(head(pairs[[1]]))
+print( head( pairs[[1]] ) )
 
 ```
 
 
 ### 6. Validation and export of results
 
-For a visual validation of the computed cell-cell contacts, we export the track information of the T cells that were in contact as .csv-file via the function `prepareExportContacts()` and `write.csv()`. 
+To check of the computed cell-cell contacts, we export the track information of the T cells that were in contact as .csv-file using `prepareExportContacts()` and `write.csv()`. 
 
-```{r export}
-# Export computed contacts as .csv ----------------------------------------
-
-tumorTracksTxt_inContact <- prepareExportContacts( pairs, tumorTracksTxt, cellType = "tumorCell")
+```{r export T cells}
+# Export computed contacts as .csv 
 tcellTracksTxt_contact <- prepareExportContacts( pairs, tcellTracksTxt, cellType = "TCell")
-
-# Export as .csv
-write.csv( tumorTracksTxt_inContact, paste0(resultsPath, "Tracks_Tumour_Cells_in_contatact.csv"), row.names=FALSE)
 write.csv( tcellTracksTxt_contact, paste0(resultsPath, "Tracks_T_Cells_in_contact.csv"), row.names=FALSE)
 ```
 
-The exported files are loaded into TrackMate via ImageJ > Plugins > Tracking > TrackMate CSV Importer. Using the .csv file, TrackMate labels the T cells in the film only *during* a contact. 
+```{r export tumour cells}
+# Export computed contacts as .csv -
+tumorTracksTxt_inContact <- prepareExportContacts( pairs, tumorTracksTxt, cellType = "tumorCell")
+write.csv( tumorTracksTxt_inContact, paste0(resultsPath, "Tracks_Tumour_Cells_in_contatact.csv"), row.names=FALSE)
+```
+
+The exported files are loaded into TrackMate via ImageJ > Plugins > Tracking > TrackMate CSV Importer. Using the .csv file, TrackMate labels the T cells in the .tif-file only *during* a contact. 
 
 This allows us to revisit the live-cell imaging film and to check whether cell-cell contacts are correctly computed. 
 
@@ -360,11 +364,10 @@ This allows us to revisit the live-cell imaging film and to check whether cell-c
 
 The example folder contains the following files:
 
-* Segmented cell ROIs for tumor and T cells as .roi files in multiple zipped folders
+* Segmented cell ROIs for tumor and T cells in multiple zipped folders
 * Cell tracks for tumor and T cells as .csv files
-* The TrackMate sessions for the analysis of tumor cells and T cells saved as .xml files
-* An immunological staining image of the tumor cells and T cells at the endpoint of the live-cell imaging film with a DAPI, phalloidin and p21 channel.
-* The results regarding cell-cell distances and cell-cell contacts achieved with the cellcontacts package.
+* The TrackMate sessions for tumor cells and T cells saved as .xml files
+* Results of an immunological staining image of the tumor cells and T cells at the endpoint of the live-cell imaging film with a DAPI, phalloidin and p21 channel as .csv file.
 * The R script to run the above mentioned analyses.
 
 For more questions and remarks, feel free to open an issue on GitHub.
