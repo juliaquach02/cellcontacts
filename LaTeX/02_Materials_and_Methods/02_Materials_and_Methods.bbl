@@ -1,0 +1,33 @@
+\begin{thebibliography}{2}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Tinevez et~al.(2017)Tinevez, Perry, Schindelin, Hoopes, Reynolds,
+  Laplantine, Bednarek, Shorte, and Eliceiri]{RN293}
+Jean-Yves Tinevez, Nick Perry, Johannes Schindelin, Genevieve~M. Hoopes,
+  Gregory~D. Reynolds, Emmanuel Laplantine, Sebastian~Y. Bednarek, Spencer~L.
+  Shorte, and Kevin~W. Eliceiri.
+\newblock Trackmate: An open and extensible platform for single-particle
+  tracking.
+\newblock \emph{Methods}, 115:\penalty0 80--90, 2017.
+\newblock ISSN 1046-2023.
+\newblock \doi{https://doi.org/10.1016/j.ymeth.2016.09.016}.
+\newblock URL
+  \url{https://www.sciencedirect.com/science/article/pii/S1046202316303346}.
+
+\bibitem[Wortel et~al.(2021)Wortel, Liu, Dannenberg, Berry, Miller, and
+  Textor]{RN299}
+Inge M.~N. Wortel, Annie~Y. Liu, Katharina Dannenberg, Jeffrey~C. Berry,
+  Mark~J. Miller, and Johannes Textor.
+\newblock Celltrackr: An r package for fast and flexible analysis of immune
+  cell migration data.
+\newblock \emph{ImmunoInformatics}, 1-2:\penalty0 100003, 2021.
+\newblock ISSN 2667-1190.
+\newblock \doi{https://doi.org/10.1016/j.immuno.2021.100003}.
+\newblock URL
+  \url{https://www.sciencedirect.com/science/article/pii/S2667119021000033}.
+
+\end{thebibliography}

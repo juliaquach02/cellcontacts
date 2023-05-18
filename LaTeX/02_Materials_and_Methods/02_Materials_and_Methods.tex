@@ -390,8 +390,8 @@ To load the zip-files containing the ROIs, we use the \codeword{read.ijzip()} fu
 %	
 %\end{lstlisting}
 
-\paragraph{Putting data into hash maps} 
-For an efficient retrieval of our data during computation, we provide functions to add the data set into hash maps. To decrease the computation time of cell-cell distances, we sort the cell ROIs into a 2D grid to get rough estimates of their position. To create a 2D grid, we provide the function \codeword{create_grid()}. 
+\paragraph{Inserting data into hash maps} 
+For an efficient retrieval of our data during computation, we provide functions to add the data set into hash maps (see \textcolor{blue}{[...]}). To decrease the computation time of cell-cell distances, we sort the cell ROIs into a 2D grid to get rough estimates of their position. To create a 2D grid, we provide the function \codeword{create_grid()}. 
 
 %To put the data into hash maps, we provide the functions
 %\begin{itemize}
@@ -439,7 +439,7 @@ The output of the function is a data frame listing all possible cell pairs with 
 %                              
 %\end{lstlisting}
 
-\paragraph{Filtering cell-cell contacts}
+\paragraph{Filtering for cell-cell contacts}
 To filter the cell pairs involved in a cell-cell contact, we only keep pairs that maintain a distance below a distance threshold for a minimum duration of frames. The distance and duration threshold can be set manually. As result, we obtain a list of tumor cell/T cell pairs and each list entry represents one pair and contains the columns \textit{time point} and \textit{distances}. 
 
 %\begin{lstlisting}[language=R]
@@ -471,9 +471,6 @@ To filter the cell pairs involved in a cell-cell contact, we only keep pairs tha
 %## 128 Track_10-6 Track_15-6 2.82842712474619 Track_10-Track_15         5    TRUE
 %\end{lstlisting}
 
-\paragraph{Exporting and visualization of results}
-To check of the computed cell-cell contacts, we export the track information of the T cells that were in contact as .csv-file using \codeword{prepareExportContacts()} and \codeword{write.csv()}. The exported files are loaded into TrackMate via ImageJ > Plugins > Tracking > TrackMate CSV Importer. Using the .csv file, TrackMate labels the T cells in the .tif-file only during a contact (see Figure \ref{TrackMate_CSV_Importer}). This allows us to revisit the live-cell imaging film and to check whether cell-cell contacts are correctly computed.
-
 \begin{figure}[h!]
 \centering
 \includegraphics[width=0.8\textwidth]{Screenshot_TrackMate_CSV_Importer.JPG}
@@ -486,16 +483,19 @@ We often want to connect the dynamic information of the cell tracks to the stati
 \paragraph{Identifying dying tumour cells}
 \textcolor{blue}{[...]}
 
-\paragraph{Computing characteristics of cell tracks}
-\textcolor{blue}{[...]}
+\paragraph{Computing characteristics of cell tracks} To get a full picture of the mechanisms behind T cell killing, we observe additional aspects of T cell dynamics including speed, directionality and persistence of the cells. To compute and to cluster these cell track characteristics, we use the package \textit{celltrackR} by Ingel Wortel et al \citep{RN299}. The documentation of this package can be found at \url{https://ingewortel.github.io/celltrackR/}.
+
+\paragraph{Exporting and visualization of results}
+To check of the computed cell-cell contacts, we export the track information of the T cells that were in contact as .csv-file using \codeword{prepareExportContacts()} and \codeword{write.csv()}. The exported files are loaded into TrackMate via ImageJ > Plugins > Tracking > TrackMate CSV Importer. Using the .csv file, TrackMate labels the T cells in the .tif-file only during a contact (see Figure \ref{TrackMate_CSV_Importer}). This allows us to revisit the live-cell imaging film and to check whether cell-cell contacts are correctly computed.
 
 %===================================================
 \section{Quality control}
 
-\paragraph{Evaluation metric}
-Our efforts to assess the reliability of our work flow were two-fold. On the one hand, we imported the computed results back into TrackMate such that T cells are labelled during a cell-cell contact for a visual validation. On the other hand, we manually counted cell-cell contacts in live cell imaging methods and evaluated the accordance of the computed cell-cell contacts to the manually obtained results.\\
+\paragraph{Segmentation and track quality}  To identify cell-cell contacts, correct segmentation and tracking data are pivotal. Already during the analysis with TrackMate, we filter the segmented cells and their corresponding tracks by the spot size, the mean fluorescence intensity, the track length and other criteria \citep{RN293}. After importing the data into R, we detect and correct for artefacts, e.g.,  double tracking or drift, via track angle analyses from the package \textit{celltrackR} by Ingel Wortel et al \citep{RN299}. 
 
-To-do: Paragraph \textit{Examining track quality}
+\paragraph{Evaluation metric}
+To assess the reliability of cell contact detection, we imported the computed results back into TrackMate such that T cells are labelled during a cell-cell contact for a visual validation. In addition, we manually observed cell-cell contacts in live cell imaging methods and evaluated the accordance of the computed cell-cell contacts to the manually obtained results.
+
 
 
 %===================================================

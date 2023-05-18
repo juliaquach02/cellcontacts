@@ -1,0 +1,148 @@
+  \documentclass{report}
+\pagestyle{plain}
+\pagenumbering{arabic}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{amscd,amsmath,amssymb,amstext,amsthm}
+\usepackage{braket}
+\usepackage{enumitem}
+\usepackage{mathpartir}
+\usepackage{tikz}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{ulem}
+\usepackage{booktabs}
+\usepackage{setspace}
+\usepackage{longtable}
+\usepackage{sectsty}
+\usepackage{titlesec}
+\usepackage{titling}
+\usepackage[numbers]{natbib}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage{placeins}
+\usepackage{subcaption}
+\usepackage{textgreek}
+\usepackage[version=3]{mhchem}
+\usepackage[nottoc]{tocbibind}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,positioning} 
+\usetikzlibrary{calc}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{positioning}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mystyle}
+
+\DeclareUnicodeCharacter{2009}{ }
+
+\definecolor{darkblue}{rgb}{0,0,0.7}
+\usepackage{hyperref}
+\usepackage{url}
+%\usepackage{breakurl}
+\def\UrlBreaks{\do\/\do-}
+
+
+\usepackage
+[
+        a4paper,
+        left=30mm,
+        right=25mm,
+        top=25mm,
+        bottom=25mm,    
+]
+{geometry}
+
+\makeatletter
+    \renewcommand{\@makechapterhead}[1]{%
+    \vspace*{50 pt}%
+    {\setlength{\parindent}{0pt} \raggedright \normalfont
+    \bfseries\Huge\sffamily
+    \ifnum \value{secnumdepth}>1 
+        \if@mainmatter\thechapter.\ \fi%
+    \fi
+    #1\par\nobreak\vspace{40 pt}}}
+    \makeatother
+
+\newcommand{\subtitle}[1]{%
+  \posttitle{%
+    \par\end{center}
+    \begin{center}\large#1\end{center}
+    \vskip4em}%
+}	
+
+\newcommand*\PrintSkips[1]{%
+  \typeout{In #1:}%
+  \typeout{\@spaces above: \the\abovecaptionskip}%
+  \typeout{\@spaces below: \the\belowcaptionskip}%
+}
+
+\newcommand{\tu}{\textmu}
+
+\NewDocumentCommand{\codeword}{v}{%
+\texttt{\textcolor{black}{#1}}%
+}
+
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}  
+
+\begin{document}
+\allsectionsfont{\sffamily}
+\onehalfspacing
+
+\setlength\parindent{0pt}
+
+%===================================================
+\chapter*{Acknowledgement}
+%===================================================
+
+This project was offered to me after completing my first laboratory rotation in Bettina Weigelin's lab.  Thank you Bettina for giving me this opportunity to come back for my master's thesis and to work, learn and make progress in your group. I would like to thank you for your patience and for giving me the time to learn data processing and coding. I always felt well-supervised and at the same time, I enjoyed the freedom to determine the direction of this thesis.
+
+I am also thankful for Oliver Hihn, Anna Ohmeyer and Steffen Hardy for providing me the live-cell imaging films and more importantly, valuable input and advice. Your feedback helped me a lot to understand your needs in terms of image analysis. I would especially like to thank you, Oli, for introducing me to recent advances in image analysis and for creating live-cell imaging films according to my demands.
+
+Thank you, Max Zimmermann, for supporting me with all technical issues and for the set up of the proxy in RStudio. This may sound like a small task but you spent two whole days to figure this out with me which I really appreciate.
+
+Of course, I am also grateful for all other lab members that made the lab such a vibrant place. During the past months, I met a lot of great students. Gina, Marius, Martina, Dani, Wenqing, Tiana, Lara, Haifa, Chioma, Naray and Timo - I enjoyed your company and it was great meeting you all!
+
+
+
+%===================================================
+\bibliographystyle{unsrtnat}
+\renewcommand{\bibname}{References}
+\bibliography{literatur}
+
+
+\end{document}
