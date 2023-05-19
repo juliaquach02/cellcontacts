@@ -13,7 +13,7 @@
 #' @export
 #'
 #' @examples
-plotMatches <- function( matches, tumorROImap, endpointROImap,
+plot_matches <- function( matches, tumorROImap, endpointROImap,
                          cols = brewer.pal( 10,'Spectral'),
                          xlim = c(0,550), ylim = c(0,550) ){
   # Set margins of plot

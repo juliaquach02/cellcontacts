@@ -129,12 +129,15 @@
 \chapter*{Acknowledgement}
 %===================================================
 
-This project was offered to me after completing my first laboratory rotation in Bettina Weigelin's lab.  Thank you Bettina for giving me this opportunity to come back for my master's thesis and to work, learn and make progress in your group. This thesis is so far my biggest academic achievement and I would like to thank you for giving me the time to learn data processing and coding in your lab. I always felt well-supervised but also enjoyed the freedom to determine the direction of this thesis.
+This project was offered to me after completing my first laboratory rotation in Bettina Weigelin's lab.  Thank you Bettina for giving me this opportunity to come back to your group for my master's thesis and to work, learn and make progress. I would like to thank you for your patience and for giving me the time to learn data processing and coding. I always felt well-supervised and at the same time, I enjoyed the freedom to determine the direction of this thesis.
 
-I am also thankful for Oliver Hihn, Anna Ohmeyer and Steffen Hardy for providing me the live-cell imaging films and more importantly, valuable input and advice. Your feedback helped me a lot to understand your needs in terms of image analysis. I would especially like to thank you, Oli, for introducing me to the recent advances in image analysis and for creating live-cell imaging films according to my needs.
+I am also thankful for Oliver Hihn, Anna Ohmeyer and Steffen Hardy for providing me the live-cell imaging films and more importantly, valuable input and advice. Your feedback helped me a lot to understand your needs in terms of image analysis. I would especially like to thank you, Oli, for introducing me to recent advances in image analysis and for creating live-cell imaging films according to my demands.
 
-Thank you, Max Zimmermann, for supporting me with all technical issues and the correct set up of the proxy in RStudio. This may sound like a small task but you spent two whole days to figure this out and I really appreciate that.
-Of course, I am also grateful for all other lab members that made the lab such a vibrant place. During the past months, I met a lot of great students - Gina, Marius, Martina, Dani, Wenqing, Tiana, Lara, Haifa, Chioma, Naray and Timo. I enjoyed your company and it was great meeting you all!
+Thank you, Max Zimmermann, for supporting me with all technical issues and for the set up of the proxy in RStudio. This may sound like a small task but you spent two whole days to figure this out with me which I really appreciate.
+
+Thank you, Inge Wortel, for answering my mails regarding all celltrackR and R-related questions.
+
+Of course, I am also grateful for all other lab members that made the lab such a vibrant place. During the past months, I met a lot of great students. Gina, Marius, Martina, Dani, Wenqing, Tiana, Lara, Haifa, Chioma, Naray and Timo - I enjoyed your company and it was great meeting you all!
 
 
 

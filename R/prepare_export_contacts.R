@@ -12,7 +12,7 @@
 #' @export
 #'
 #' @examples
-prepareExportContacts <- function( pairs, tracksTxt, cellType = "tumorCell" ){
+prepare_export_contacts <- function( pairs, tracksTxt, cellType = "tumorCell" ){
   
   # Get names of (tumor or T) cells that were in contact
   cellsContact <- vector( "list", length = length(pairs) )
