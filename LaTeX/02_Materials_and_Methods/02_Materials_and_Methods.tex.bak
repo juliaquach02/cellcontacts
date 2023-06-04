@@ -483,7 +483,7 @@ We often want to connect the dynamic information of the cell tracks to the stati
 \paragraph{Identifying dying tumour cells}
 \textcolor{blue}{[...]}
 
-\paragraph{Computing characteristics of cell tracks} To get a full picture of the mechanisms behind T cell killing, we observe additional aspects of T cell dynamics including speed, directionality and persistence of the cells. To compute and to cluster these cell track characteristics, we use the package \textit{celltrackR} by Ingel Wortel et al \citep{RN299}. 
+\paragraph{Computing characteristics of cell tracks} To get a full picture of the mechanisms behind T cell killing, we observe additional aspects of T cell dynamics including speed, directionality and persistence of the cells. To compute and to cluster these cell track characteristics, we use the package \textit{celltrackR} by Ingel Wortel et al \citep{RN299}. The documentation of this package can be found at \url{https://ingewortel.github.io/celltrackR/}.
 
 \paragraph{Exporting and visualization of results}
 To check of the computed cell-cell contacts, we export the track information of the T cells that were in contact as .csv-file using \codeword{prepareExportContacts()} and \codeword{write.csv()}. The exported files are loaded into TrackMate via ImageJ > Plugins > Tracking > TrackMate CSV Importer. Using the .csv file, TrackMate labels the T cells in the .tif-file only during a contact (see Figure \ref{TrackMate_CSV_Importer}). This allows us to revisit the live-cell imaging film and to check whether cell-cell contacts are correctly computed.

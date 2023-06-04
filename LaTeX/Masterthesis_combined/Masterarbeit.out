@@ -1,25 +1,25 @@
 \BOOKMARK [0][-]{chapter.1}{Summary}{}% 1
 \BOOKMARK [0][-]{chapter.2}{Introduction}{}% 2
 \BOOKMARK [1][-]{section.2.1}{T cells are crucial for tumour elimination}{chapter.2}% 3
-\BOOKMARK [1][-]{section.2.2}{CAR T cells as arising tumour therapy}{chapter.2}% 4
-\BOOKMARK [1][-]{section.2.3}{The relevance of cell dynamics}{chapter.2}% 5
+\BOOKMARK [1][-]{section.2.2}{CAR T cell therapy exploits the killing activity of T cells}{chapter.2}% 4
+\BOOKMARK [1][-]{section.2.3}{Why are cell dynamics relevant?}{chapter.2}% 5
 \BOOKMARK [1][-]{section.2.4}{Tools to investigate cell dynamics}{chapter.2}% 6
 \BOOKMARK [2][-]{subsection.2.4.1}{Cell segmentation}{section.2.4}% 7
 \BOOKMARK [2][-]{subsection.2.4.2}{Cell tracking}{section.2.4}% 8
 \BOOKMARK [2][-]{subsection.2.4.3}{Cell-cell contacts}{section.2.4}% 9
-\BOOKMARK [0][-]{chapter.3}{Methods}{}% 10
-\BOOKMARK [1][-]{section.3.1}{Work flow}{chapter.3}% 11
-\BOOKMARK [1][-]{section.3.2}{Extracting features}{chapter.3}% 12
-\BOOKMARK [1][-]{section.3.3}{Developing the R package cellcontacts}{chapter.3}% 13
-\BOOKMARK [2][-]{subsection.3.3.1}{ Computing cell-cell contacts }{section.3.3}% 14
-\BOOKMARK [2][-]{subsection.3.3.2}{ Identifying dying tumour cells}{section.3.3}% 15
-\BOOKMARK [1][-]{section.3.4}{Tools for quality control}{chapter.3}% 16
-\BOOKMARK [0][-]{chapter.4}{Results}{}% 17
-\BOOKMARK [1][-]{section.4.1}{Segmentation and tracking of cells}{chapter.4}% 18
-\BOOKMARK [1][-]{section.4.2}{Computing cell-cell contacts}{chapter.4}% 19
-\BOOKMARK [1][-]{section.4.3}{Benchmarking computation time}{chapter.4}% 20
-\BOOKMARK [1][-]{section.4.4}{Investigation of killing efficiency}{chapter.4}% 21
-\BOOKMARK [1][-]{section.4.5}{Investigating the induction of cell senescence}{chapter.4}% 22
-\BOOKMARK [0][-]{chapter.5}{Discussion}{}% 23
-\BOOKMARK [1][-]{section.5.1}{Biological interpretation}{chapter.5}% 24
-\BOOKMARK [1][-]{section.5.2}{Working title: Comparison to available tools}{chapter.5}% 25
+\BOOKMARK [0][-]{chapter.3}{Data sets}{}% 10
+\BOOKMARK [0][-]{chapter.4}{Method}{}% 11
+\BOOKMARK [1][-]{section.4.1}{Algorithm to compute cell-cell contacts}{chapter.4}% 12
+\BOOKMARK [1][-]{section.4.2}{Proposed image analysis pipeline}{chapter.4}% 13
+\BOOKMARK [1][-]{section.4.3}{Quality control}{chapter.4}% 14
+\BOOKMARK [0][-]{chapter.5}{Results}{}% 15
+\BOOKMARK [1][-]{section.5.1}{Accuracy of cell segmentation and cell tracking}{chapter.5}% 16
+\BOOKMARK [1][-]{section.5.2}{Accuracy of cell-cell contact detection}{chapter.5}% 17
+\BOOKMARK [1][-]{section.5.3}{Evaluating computation time}{chapter.5}% 18
+\BOOKMARK [1][-]{section.5.4}{Detecting tumour cell/T cell contacts}{chapter.5}% 19
+\BOOKMARK [0][-]{chapter.6}{Discussion}{}% 20
+\BOOKMARK [1][-]{section.6.1}{Reliability and potential}{chapter.6}% 21
+\BOOKMARK [1][-]{section.6.2}{Compared methods}{chapter.6}% 22
+\BOOKMARK [1][-]{section.6.3}{Biological interpretation and perspective}{chapter.6}% 23
+\BOOKMARK [0][-]{chapter.7}{Conclusion}{}% 24
+\BOOKMARK [0][-]{chapter*.23}{References}{}% 25

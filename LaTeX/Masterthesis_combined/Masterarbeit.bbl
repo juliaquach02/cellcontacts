@@ -1,0 +1,85 @@
+\begin{thebibliography}{7}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Estimates(2020-12-09)]{WHO}
+WHO’s Global~Health Estimates.
+\newblock The top 10 causes of death, 2020-12-09.
+\newblock URL
+  \url{https://www.who.int/news-room/fact-sheets/detail/the-top-10-causes-of-death}.
+\newblock [Last access 2023-04-25].
+
+\bibitem[Sheets(2022-02-03)]{WHO_Cancer}
+WHO~Fact Sheets.
+\newblock Cancer, 2022-02-03.
+\newblock URL \url{https://www.who.int/news-room/fact-sheets/detail/cancer}.
+\newblock [Last access 2023-04-25].
+
+\bibitem[Modjtahedi and Clarke(2007)]{RN295}
+Helmout Modjtahedi and Ailsa Clarke.
+\newblock \emph{The Immune System}, pages 79--98.
+\newblock 2007.
+\newblock ISBN 9780470988121.
+\newblock \doi{https://doi.org/10.1002/9780470988121.ch8}.
+\newblock URL \url{https://doi.org/10.1002/9780470988121.ch8}.
+
+\bibitem[Schmidt et~al.()Schmidt, Weigert, Broaddus, and Myers]{RN285}
+Uwe Schmidt, Martin Weigert, Coleman Broaddus, and Gene Myers.
+\newblock Cell detection with star-convex polygons.
+\newblock In Alejandro~F. Frangi, Julia~A. Schnabel, Christos Davatzikos,
+  Carlos Alberola-López, and Gabor Fichtinger, editors, \emph{Medical Image
+  Computing and Computer Assisted Intervention – MICCAI 2018}, pages
+  265--273. Springer International Publishing.
+\newblock ISBN 978-3-030-00934-2.
+
+\bibitem[Ulman et~al.(2017)Ulman, Maška, Magnusson, Ronneberger, Haubold,
+  Harder, Matula, Matula, Svoboda, Radojevic, Smal, Rohr, Jaldén, Blau,
+  Dzyubachyk, Lelieveldt, Xiao, Li, Cho, Dufour, Olivo-Marin, Reyes-Aldasoro,
+  Solis-Lemus, Bensch, Brox, Stegmaier, Mikut, Wolf, Hamprecht, Esteves,
+  Quelhas, Demirel, Malmström, Jug, Tomancak, Meijering, Muñoz-Barrutia,
+  Kozubek, and Ortiz-de Solorzano]{RN292}
+Vladimír Ulman, Martin Maška, Klas E.~G. Magnusson, Olaf Ronneberger, Carsten
+  Haubold, Nathalie Harder, Pavel Matula, Petr Matula, David Svoboda, Miroslav
+  Radojevic, Ihor Smal, Karl Rohr, Joakim Jaldén, Helen~M. Blau, Oleh
+  Dzyubachyk, Boudewijn Lelieveldt, Pengdong Xiao, Yuexiang Li, Siu-Yeung Cho,
+  Alexandre~C. Dufour, Jean-Christophe Olivo-Marin, Constantino~C.
+  Reyes-Aldasoro, Jose~A. Solis-Lemus, Robert Bensch, Thomas Brox, Johannes
+  Stegmaier, Ralf Mikut, Steffen Wolf, Fred~A. Hamprecht, Tiago Esteves, Pedro
+  Quelhas, Ömer Demirel, Lars Malmström, Florian Jug, Pavel Tomancak, Erik
+  Meijering, Arrate Muñoz-Barrutia, Michal Kozubek, and Carlos Ortiz-de
+  Solorzano.
+\newblock An objective comparison of cell-tracking algorithms.
+\newblock \emph{Nature Methods}, 14\penalty0 (12):\penalty0 1141--1152, 2017.
+\newblock ISSN 1548-7105.
+\newblock \doi{10.1038/nmeth.4473}.
+\newblock URL \url{https://doi.org/10.1038/nmeth.4473}.
+
+\bibitem[Tinevez et~al.(2017)Tinevez, Perry, Schindelin, Hoopes, Reynolds,
+  Laplantine, Bednarek, Shorte, and Eliceiri]{RN293}
+Jean-Yves Tinevez, Nick Perry, Johannes Schindelin, Genevieve~M. Hoopes,
+  Gregory~D. Reynolds, Emmanuel Laplantine, Sebastian~Y. Bednarek, Spencer~L.
+  Shorte, and Kevin~W. Eliceiri.
+\newblock Trackmate: An open and extensible platform for single-particle
+  tracking.
+\newblock \emph{Methods}, 115:\penalty0 80--90, 2017.
+\newblock ISSN 1046-2023.
+\newblock \doi{https://doi.org/10.1016/j.ymeth.2016.09.016}.
+\newblock URL
+  \url{https://www.sciencedirect.com/science/article/pii/S1046202316303346}.
+
+\bibitem[Wortel et~al.(2021)Wortel, Liu, Dannenberg, Berry, Miller, and
+  Textor]{RN299}
+Inge M.~N. Wortel, Annie~Y. Liu, Katharina Dannenberg, Jeffrey~C. Berry,
+  Mark~J. Miller, and Johannes Textor.
+\newblock Celltrackr: An r package for fast and flexible analysis of immune
+  cell migration data.
+\newblock \emph{ImmunoInformatics}, 1-2:\penalty0 100003, 2021.
+\newblock ISSN 2667-1190.
+\newblock \doi{https://doi.org/10.1016/j.immuno.2021.100003}.
+\newblock URL
+  \url{https://www.sciencedirect.com/science/article/pii/S2667119021000033}.
+
+\end{thebibliography}

@@ -1,0 +1,212 @@
+\documentclass{report}
+\pagestyle{plain}
+\pagenumbering{arabic}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{amscd,amsmath,amssymb,amstext,amsthm}
+\usepackage{braket}
+\usepackage{enumitem}
+\usepackage{mathpartir}
+\usepackage{tikz}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{ulem}
+\usepackage{booktabs}
+\usepackage{setspace}
+\usepackage{longtable}
+\usepackage{sectsty}
+\usepackage{titlesec}
+\usepackage{titling}
+\usepackage[numbers]{natbib}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage{placeins}
+\usepackage{subcaption}
+\usepackage{textgreek}
+\usepackage[version=3]{mhchem}
+\usepackage[nottoc]{tocbibind}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,positioning} 
+\usetikzlibrary{calc}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{positioning}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mystyle}
+
+\DeclareUnicodeCharacter{2009}{ }
+
+\definecolor{darkblue}{rgb}{0,0,0.7}
+\usepackage{hyperref}
+\usepackage{url}
+%\usepackage{breakurl}
+\def\UrlBreaks{\do\/\do-}
+
+
+\usepackage
+[
+        a4paper,
+        left=30mm,
+        right=25mm,
+        top=25mm,
+        bottom=25mm,    
+]
+{geometry}
+
+\makeatletter
+    \renewcommand{\@makechapterhead}[1]{%
+    \vspace*{50 pt}%
+    {\setlength{\parindent}{0pt} \raggedright \normalfont
+    \bfseries\Huge\sffamily
+    \ifnum \value{secnumdepth}>1 
+        \if@mainmatter\thechapter.\ \fi%
+    \fi
+    #1\par\nobreak\vspace{40 pt}}}
+    \makeatother
+
+\newcommand{\subtitle}[1]{%
+  \posttitle{%
+    \par\end{center}
+    \begin{center}\large#1\end{center}
+    \vskip4em}%
+}	
+
+\newcommand*\PrintSkips[1]{%
+  \typeout{In #1:}%
+  \typeout{\@spaces above: \the\abovecaptionskip}%
+  \typeout{\@spaces below: \the\belowcaptionskip}%
+}
+
+\newcommand{\tu}{\textmu}
+
+\NewDocumentCommand{\codeword}{v}{%
+\texttt{\textcolor{black}{#1}}%
+}
+
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}  
+
+\begin{document}
+\allsectionsfont{\sffamily}
+\onehalfspacing
+
+\setlength\parindent{0pt}
+  
+
+%%===================================================
+\chapter{Results}
+
+In this chapter, we present three aspects of our developed pipeline. Firstly, we will evaluate the accuracy of our chosen cell segmentation and tracking tools with regard to our test data sets. Secondly, we will examine the accuracy of our cell-cell contact detection algorithm which is based upon the above mentioned cell segmentation and tracking tools. Lastly, we will outline the biological implications that can be derived from this pipeline.
+
+\section{Accuracy of cell segmentation and cell tracking}
+
+Discuss
+\begin{itemize}
+	\item Accuracy of StarDist (especially on mitotic cells and T cells in a non-regular shape)
+	\item Accuracy of LAP tracker (include photos)?
+\end{itemize}
+
+\section{Accuracy of cell-cell contact detection}
+
+\begin{itemize}
+	\item Setting the parameters
+	\item Detection based on duration of proximity (not consideration of cell shape)
+	\item Figure: Boxplot to demonstrate deviation from ground truth?
+\end{itemize}
+
+\section{Evaluating computation time}
+
+\begin{itemize}
+	\item Compute complexity for the approach with and without grid
+	\item Include benchmarking results
+\end{itemize}
+
+\section{Detecting tumour cell/T cell contacts}
+
+\begin{itemize}
+	\item Olis Data with ground truth
+	\item Olis Data on large scale
+	\item Olis Data - Compare with and without OVA
+	\item Olis Data - Connect to Fix-While-Filming
+	\item Steffens Data with ground truth
+	\item Steffens Data on large scale
+\end{itemize}
+
+\begin{itemize}
+ \item Segmentation and tracking
+ \item Accuracy
+ \item Cell-cell contacts
+ \item Figure: Number of contacts in two conditions (with and without OVA)
+ \item Figure: Duration of contact (with and without OVA)
+ \item Segmentation and tracking
+ \item Accuracy
+ \item Cell-cell contacts
+ \item Figure: Number of contacts in two conditions (with and without OVA)
+ \item Figure: Duration of contact (with and without OVA)
+\end{itemize}
+
+%%===================================================
+%\chapter*{Acknowledgment}
+%\addcontentsline{toc}{chapter}{Acknowledgment}
+
+
+
+%===================================================
+%
+%\listoffigures
+%\listoftables
+%===================================================
+\bibliographystyle{unsrtnat}
+\renewcommand{\bibname}{References}
+\bibliography{literatur}
+
+
+%%===================================================
+%\chapter*{Supplement}
+%\addcontentsline{toc}{chapter}{Supplementary}
+%
+%\newcommand{\beginsupplement}{
+%        \setcounter{table}{0}
+%        \renewcommand{\thetable}{S\arabic{table}}%
+%        \setcounter{figure}{0}
+%        \renewcommand{\thefigure}{S\arabic{figure}}%
+%     }
+% 
+%\beginsupplement
+
+
+
+\end{document}

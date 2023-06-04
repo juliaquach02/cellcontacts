@@ -1,26 +1,39 @@
-\contentsline {chapter}{\numberline {1}Summary}{2}{chapter.1}
-\contentsline {chapter}{\numberline {2}Introduction}{3}{chapter.2}
-\contentsline {section}{\numberline {2.1}T cells are crucial for tumour elimination}{3}{section.2.1}
-\contentsline {section}{\numberline {2.2}CAR T cells as arising tumour therapy}{3}{section.2.2}
-\contentsline {section}{\numberline {2.3}The relevance of cell dynamics}{3}{section.2.3}
-\contentsline {paragraph}{Cell-cell interaction is essential for tumour killing}{4}{paragraph*.2}
-\contentsline {section}{\numberline {2.4}Tools to investigate cell dynamics}{4}{section.2.4}
-\contentsline {subsection}{\numberline {2.4.1}Cell segmentation}{4}{subsection.2.4.1}
-\contentsline {subsection}{\numberline {2.4.2}Cell tracking}{4}{subsection.2.4.2}
-\contentsline {subsection}{\numberline {2.4.3}Cell-cell contacts}{4}{subsection.2.4.3}
-\contentsline {chapter}{\numberline {3}Methods}{5}{chapter.3}
-\contentsline {section}{\numberline {3.1}Work flow}{5}{section.3.1}
-\contentsline {section}{\numberline {3.2}Extracting features}{5}{section.3.2}
-\contentsline {section}{\numberline {3.3}Developing the R package \textit {cellcontacts}}{5}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1} Computing cell-cell contacts }{5}{subsection.3.3.1}
-\contentsline {subsection}{\numberline {3.3.2} Identifying dying tumour cells}{5}{subsection.3.3.2}
-\contentsline {section}{\numberline {3.4}Tools for quality control}{5}{section.3.4}
-\contentsline {chapter}{\numberline {4}Results}{6}{chapter.4}
-\contentsline {section}{\numberline {4.1}Segmentation and tracking of cells}{6}{section.4.1}
-\contentsline {section}{\numberline {4.2}Computing cell-cell contacts}{6}{section.4.2}
-\contentsline {section}{\numberline {4.3}Benchmarking computation time}{6}{section.4.3}
-\contentsline {section}{\numberline {4.4}Investigation of killing efficiency}{6}{section.4.4}
-\contentsline {section}{\numberline {4.5}Investigating the induction of cell senescence}{6}{section.4.5}
-\contentsline {chapter}{\numberline {5}Discussion}{7}{chapter.5}
-\contentsline {section}{\numberline {5.1}Biological interpretation}{7}{section.5.1}
-\contentsline {section}{\numberline {5.2}Working title: Comparison to available tools}{7}{section.5.2}
+\contentsline {chapter}{\numberline {1}Summary}{3}{chapter.1}
+\contentsline {chapter}{\numberline {2}Introduction}{4}{chapter.2}
+\contentsline {section}{\numberline {2.1}T cells are crucial for tumour elimination}{4}{section.2.1}
+\contentsline {section}{\numberline {2.2}CAR T cell therapy exploits the killing activity of T cells}{4}{section.2.2}
+\contentsline {section}{\numberline {2.3}Why are cell dynamics relevant?}{5}{section.2.3}
+\contentsline {section}{\numberline {2.4}Tools to investigate cell dynamics}{6}{section.2.4}
+\contentsline {subsection}{\numberline {2.4.1}Cell segmentation}{6}{subsection.2.4.1}
+\contentsline {subsection}{\numberline {2.4.2}Cell tracking}{6}{subsection.2.4.2}
+\contentsline {subsection}{\numberline {2.4.3}Cell-cell contacts}{7}{subsection.2.4.3}
+\contentsline {chapter}{\numberline {3}Data sets}{8}{chapter.3}
+\contentsline {chapter}{\numberline {4}Method}{9}{chapter.4}
+\contentsline {section}{\numberline {4.1}Algorithm to compute cell-cell contacts}{9}{section.4.1}
+\contentsline {paragraph}{Formalizing the data set and defining cell-cell contacts}{9}{paragraph*.5}
+\contentsline {paragraph}{Algorithm (cell-cell contact computation)}{9}{paragraph*.6}
+\contentsline {section}{\numberline {4.2}Proposed image analysis pipeline}{10}{section.4.2}
+\contentsline {paragraph}{Requirements}{12}{paragraph*.8}
+\contentsline {paragraph}{Installation}{12}{paragraph*.9}
+\contentsline {paragraph}{Preprocessing in ImageJ}{12}{paragraph*.10}
+\contentsline {paragraph}{Setting directories and loading the track data}{12}{paragraph*.12}
+\contentsline {paragraph}{Inserting data into hash maps}{13}{paragraph*.13}
+\contentsline {paragraph}{Computing cell-cell distances}{13}{paragraph*.14}
+\contentsline {paragraph}{Filtering for cell-cell contacts}{13}{paragraph*.15}
+\contentsline {paragraph}{Correlating results to immunological staining results}{14}{paragraph*.17}
+\contentsline {paragraph}{Computing characteristics of cell tracks}{14}{paragraph*.18}
+\contentsline {paragraph}{Exporting and visualization of results}{14}{paragraph*.19}
+\contentsline {section}{\numberline {4.3}Quality control}{14}{section.4.3}
+\contentsline {paragraph}{Segmentation and track quality}{14}{paragraph*.20}
+\contentsline {paragraph}{Evaluation metric}{14}{paragraph*.21}
+\contentsline {chapter}{\numberline {5}Results}{15}{chapter.5}
+\contentsline {section}{\numberline {5.1}Accuracy of cell segmentation and cell tracking}{15}{section.5.1}
+\contentsline {section}{\numberline {5.2}Accuracy of cell-cell contact detection}{15}{section.5.2}
+\contentsline {section}{\numberline {5.3}Evaluating computation time}{15}{section.5.3}
+\contentsline {section}{\numberline {5.4}Detecting tumour cell/T cell contacts}{15}{section.5.4}
+\contentsline {chapter}{\numberline {6}Discussion}{16}{chapter.6}
+\contentsline {section}{\numberline {6.1}Reliability and potential}{16}{section.6.1}
+\contentsline {section}{\numberline {6.2}Compared methods}{16}{section.6.2}
+\contentsline {section}{\numberline {6.3}Biological interpretation and perspective}{16}{section.6.3}
+\contentsline {chapter}{\numberline {7}Conclusion}{17}{chapter.7}
+\contentsline {chapter}{References}{19}{chapter*.23}
