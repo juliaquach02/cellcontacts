@@ -1,0 +1,6 @@
+$fileLocation = read-host "Type/Paste location"
+$directories = Get-ChildItem -Path $fileLocation -Directory
+
+foreach ($directory in $directories) {
+    Compress-Archive -Path $directory.FullName -DestinationPath "$($directory.FullName).zip" -Force
+}
