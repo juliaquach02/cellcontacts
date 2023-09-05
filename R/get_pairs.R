@@ -14,7 +14,7 @@ get_pairs <- function( x, minimumDuration = 5){
   
   # Here every x is one of the dataframes for one pair.
   # the time column should be sorted in ascending order:
-  x <- x[ order( x$t), ]
+  x <- x[ order( x$timePoint), ]
   
   # If there are no entries where contact = 'TRUE', 
   # return an empty dataframe

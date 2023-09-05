@@ -1,6 +1,6 @@
 # Load dependencies and install if necessary---------------------------------------------------------------
 
-required <- c("celltrackR", "dplyr", "ggplot2", "RImageJROI", "spatstat", "sp", "sf","r2r","future", "RColorBrewer", "viridis", "tidyverse")
+required <- c("celltrackR", "dplyr", "ggplot2", "RImageJROI", "spatstat", "sp", "sf","r2r","future", "RColorBrewer", "viridis", "tidyverse", "ggpubr", "rstatix", "stringr")
 
 lapply( required, require, character.only = TRUE)
 

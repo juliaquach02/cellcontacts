@@ -17,7 +17,7 @@ plot_matches <- function( matches, tumorROImap, endpointROImap,
                          cols = brewer.pal( 10,'Spectral'),
                          xlim = c(0,550), ylim = c(0,550) ){
   # Set margins of plot
-  par(mar=c(10, 6, 3, 6) + 0.1)
+  par(mar=c(6, 6, 3, 6) + 0.1)
   
   # Create empty plot
   plot(NA,  xlab = "x-direction", ylab = "y-direction", 

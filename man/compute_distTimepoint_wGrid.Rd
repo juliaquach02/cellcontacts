@@ -7,9 +7,9 @@
 compute_distTimepoint_wGrid(
   timepoint,
   gridWidth = 100,
-  ROImap1 = tumorROImap,
+  ROImap1 = tumourROImap,
   ROImap2 = tcellROImap,
-  ROImapField1 = tumorROImap_NamesToGrid,
+  ROImapField1 = tumourROImap_NamesToGrid,
   ROImapField2 = tcellROImap_NamesToGrid
 )
 }
@@ -19,11 +19,11 @@ distances should be computed.}
 
 \item{gridWidth}{The width of one square in the grid into which ROI centers have been assigned.}
 
-\item{ROImap1}{Hash map with tumor ROI names as keys and tumor ROI coordinates as values.}
+\item{ROImap1}{Hash map with tumour ROI names as keys and tumour ROI coordinates as values.}
 
 \item{ROImap2}{Hash map with T cell ROI names as keys and T cell ROI coordinates as values.}
 
-\item{ROImapField1}{Hash map with tumor ROI names as keys and assignment to grid as value.}
+\item{ROImapField1}{Hash map with tumour ROI names as keys and assignment to grid as value.}
 
 \item{ROImapField2}{Hash map with T cell ROI names as keys and assignment to grid as value.}
 }

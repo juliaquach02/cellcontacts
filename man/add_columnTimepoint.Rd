@@ -4,13 +4,13 @@
 \alias{add_columnTimepoint}
 \title{Adding the column "timePoint" to list of data frames}
 \usage{
-add_columnTimepoint(cellDist_1timepoint, tumor_trackName_frameNum)
+add_columnTimepoint(cellDist_1timepoint, tumour_trackName_frameNum)
 }
 \arguments{
 \item{cellDist_1timepoint}{Data frame with at least the columns columns: 
 names from cell population 1 and names from cell population 2.}
 
-\item{tumor_trackName_frameNum}{A data frame with ROI names in one column, each in the format "Track_[id]_[t]", 
+\item{tumour_trackName_frameNum}{A data frame with ROI names in one column, each in the format "Track_[id]_[t]", 
 and the frame number/time point in which the respective ROI appears in a second column,}
 }
 \value{
