@@ -22,7 +22,21 @@ the results to immunohistochemical staining results.
 The goal of this R package is to enable the quantitative analysis of T
 cell-tumour cell interaction in live cell imaging sequences
 
+# **System Requirements**
+
 ------------------------------------------------------------------------
+
+The R package was built with the R version 4.3.1 and is suitable for all
+operating systems running R (version 4.3.1 or later) with sufficient RAM
+to load all data sets. The R package requires the R packages future
+(Version 1.33.1), RImageJROI (Version 0.1.2), r2r (Version 0.1.1),sf
+(Version 1.0-15), spatstat (Version 3.0-7), sp (Version 2.1-3),
+tidyverse (Version2.0.0) and ggplot (Version 3.5.0). The dependencies
+are stored in the RProfile.
+
+The package was tested on a Windows 10 Pro Education operating system
+(Version 22H2) with a 13th Gen Intel(R) Core (TM) i9-13900KF 3.00 GHz
+processor and 192 GB RAM.
 
 # **Installation**
 
